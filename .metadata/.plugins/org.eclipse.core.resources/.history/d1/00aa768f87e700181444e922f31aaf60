@@ -1,0 +1,101 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.LayoutManager;
+
+import javax.swing.*;
+
+public class Breakout extends JFrame{
+	
+	private JButton play, buttons, scores, exit;
+	private JPanel panelButtons;
+	private JLabel title;
+	private ImageIcon fondo;
+	 
+	
+	
+	public Breakout() {
+		
+		
+		super("Breakout");
+		setSize(700, 600);
+		setLocation(400, 200);
+
+		Game game = new Game();
+		
+		fondo = new ImageIcon("fondo.png");
+		
+		play = new JButton("Jugar");
+		play.setOpaque(false);
+		play.setContentAreaFilled(false);
+		play.setIcon(fondo);
+		play.setPreferredSize(new Dimension(100, 100));
+		play.setForeground(Color.WHITE);
+		play.setHorizontalTextPosition(JButton.CENTER);
+		play.setVerticalTextPosition(JButton.CENTER);
+		
+		buttons = new JButton("Botones");
+		buttons.setOpaque(false);
+		buttons.setContentAreaFilled(false);
+		buttons.setIcon(fondo);
+		buttons.setPreferredSize(new Dimension(100, 100));
+		buttons.setForeground(Color.WHITE);
+		buttons.setHorizontalTextPosition(JButton.CENTER);
+		buttons.setVerticalTextPosition(JButton.CENTER);
+		
+		scores = new JButton("Puntuaciones altas");
+		scores.setOpaque(false);
+		scores.setContentAreaFilled(false);
+		scores.setIcon(fondo);
+		scores.setPreferredSize(new Dimension(100, 100));
+		scores.setForeground(Color.WHITE);
+		scores.setHorizontalTextPosition(JButton.CENTER);
+		scores.setVerticalTextPosition(JButton.CENTER);
+		
+		exit = new JButton("Salir");
+		exit.setOpaque(false);
+		exit.setContentAreaFilled(false);
+		exit.setIcon(fondo);
+		exit.setPreferredSize(new Dimension(100, 100));
+		exit.setForeground(Color.WHITE);
+		exit.setHorizontalTextPosition(JButton.CENTER);
+		exit.setVerticalTextPosition(JButton.CENTER);
+		
+		panelButtons = new JPanel();
+		title = new JLabel();
+		title.setFont(new Font("American Typewriter", Font.ITALIC, 60));
+		title.setIcon(fondo);
+		title.setPreferredSize(new Dimension(200, 100));
+		title.setForeground(Color.WHITE);
+		title.setHorizontalTextPosition(JButton.CENTER);
+		title.setVerticalTextPosition(JButton.CENTER);
+		title.setText("Breakout");
+		
+		panelButtons.setLayout(new GridLayout(4, 1));
+		panelButtons.add(title);
+		panelButtons.add(play);
+		panelButtons.add(buttons);
+		panelButtons.add(scores);
+		panelButtons.add(exit);
+		
+		setLayout(new BorderLayout());
+        JLabel background = new JLabel(new ImageIcon("fondo.png"));
+        add(background);
+        background.setLayout(new FlowLayout());
+        background.add(panelTitulo);
+        background.add(panelButtons);
+        
+
+		
+		
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setVisible(true);
+		setResizable(false);
+		
+	}
+
+}

@@ -1,0 +1,19 @@
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Calculadora extends JFrame implements ActionListener{
+
+	private JButton nueve, ocho, siete, seis, cinco, cuatro, tres, dos, uno, cero, sumar, multiplicar, igual, dividir, restar;
+	private JPanel numeris;
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

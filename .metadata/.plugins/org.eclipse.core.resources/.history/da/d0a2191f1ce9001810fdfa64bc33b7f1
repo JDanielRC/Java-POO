@@ -1,0 +1,7 @@
+
+public class PlayerScore {
+	
+	public PlayerScore(String nombre, int score) {
+		
+	}
+}

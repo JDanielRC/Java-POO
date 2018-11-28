@@ -1,0 +1,49 @@
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Calculadora extends JFrame implements ActionListener{
+
+	private JButton nueve, ocho, siete, seis, cinco, cuatro, tres, dos, uno, cero, sumar, multiplicar, igual, dividir, restar;
+	private JPanel panelNumeros, panelOperaciones, panelIgualCero;
+	private JTextField output;
+	//botones
+	nueve = new JButton();
+	ocho = new JButton();
+	siete = new JButton();
+	seis = new JButton();
+	cinco = new JButton();
+	cuatro = new JButton();
+	tres = new JButton();
+	dos = new JButton();
+	uno = new JButton();
+	cero = new JButton();
+	sumar = new JButton();
+	multiplicar = new JButton();
+	dividir = new JButton();
+	restar = new JButton();
+	igual = new JButton();
+	//panel de numeros
+	panelNumeros = new JPanel();
+	panelNumeros.setLayout(3, 3);
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	panelNumeros.add();
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

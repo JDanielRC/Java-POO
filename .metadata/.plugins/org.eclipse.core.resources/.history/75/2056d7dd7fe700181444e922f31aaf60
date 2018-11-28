@@ -1,0 +1,36 @@
+import java.awt.Image;
+
+import javax.swing.*;
+
+public class Breakout extends JFrame{
+	
+	 
+	
+	
+	public Breakout() {
+		
+		
+		super("Breakout");
+		setSize(700, 600);
+		setLocation(400, 200);
+
+		
+		
+		
+		Game game = new Game();
+		
+		play = new JButton("Jugar");
+		buttons = new JButton("Botones");
+		scores = new JButton("Puntuaciones altas");
+		exit = new JButton("Salir");
+		
+		
+		
+		add(game);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setVisible(true);
+		setResizable(false);
+		
+	}
+
+}

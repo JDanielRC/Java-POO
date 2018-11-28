@@ -1,0 +1,10 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Torres torre = new Torres();
+		int n = 4; // Number of disks 
+        torreHanoi(n, 'A', 'C', 'B');  // A, B and C are names of rods
+	}
+
+}

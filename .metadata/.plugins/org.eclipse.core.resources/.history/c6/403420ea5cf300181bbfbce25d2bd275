@@ -1,0 +1,22 @@
+
+public class Torres { 
+    
+    public void torreHanoi(int n, char deTorre, char aTorre, char aux_rod) 
+    { 
+        if (n == 1) 
+        { 
+            System.out.println("Move disk 1 from rod " +  deTorre + " to rod " + aTorre); 
+            return; 
+        } 
+        torreHanoi(n-1, deTorre, aux_rod, aTorre); 
+        System.out.println("Move disk " + n + " from rod " +  deTorre + " to rod " + aTorre); 
+        torreHanoi(n-1, aux_rod, aTorre, deTorre); 
+    } 
+      
+    //  Driver method 
+    public static void main(String args[]) 
+    { 
+        int n = 4; // Number of disks 
+        towerOfHanoi(n, 'A', 'C', 'B');  // A, B and C are names of rods 
+    } 
+} 

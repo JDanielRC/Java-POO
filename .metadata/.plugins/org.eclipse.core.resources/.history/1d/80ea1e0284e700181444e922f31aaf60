@@ -1,0 +1,53 @@
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.LayoutManager;
+
+import javax.swing.*;
+
+public class Breakout extends JFrame{
+	
+	private JButton play, buttons, scores, exit;
+	private JPanel botones;
+	 
+	
+	
+	public Breakout() {
+		
+		
+		super("Breakout");
+		setSize(700, 600);
+		setLocation(400, 200);
+
+		Game game = new Game();
+		
+		play = new JButton("Jugar");
+		buttons = new JButton("Botones");
+		scores = new JButton("Puntuaciones altas");
+		exit = new JButton("Salir");
+		botones = new JPanel();
+		
+		botones.setLayout(new GridLayout(5, 1));
+		botones.add(play);
+		botones.add(buttons);
+		botones.add(scores);
+		botones.add(exit);
+		
+		setLayout(new BorderLayout());
+        JLabel background = new JLabel(new ImageIcon("fondo.png"));
+        add(background);
+        background.setLayout(new FlowLayout());
+        background.add(botones);
+        
+
+		
+		
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setVisible(true);
+		setResizable(false);
+		
+	}
+
+}

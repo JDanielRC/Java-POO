@@ -1,0 +1,68 @@
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Calculadora extends JFrame implements ActionListener{
+
+	private JButton nueve, ocho, siete, seis, cinco, cuatro, tres, dos, uno, cero, sumar, multiplicar, igual, dividir, restar;
+	private JPanel panelNumeros, panelOperaciones, panelIgualCero;
+	private JTextField salida;
+	
+	public Calculadora(String title) {
+		super(title);
+		setSize(720, 600);
+		setLocation(100, 100);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
+		//botones
+		nueve = new JButton("9");
+		ocho = new JButton("8");
+		siete = new JButton("7");
+		seis = new JButton("6");
+		cinco = new JButton("5");
+		cuatro = new JButton("4");
+		tres = new JButton("3");
+		dos = new JButton("2");
+		uno = new JButton("1");
+		cero = new JButton("0");
+		sumar = new JButton("+");
+		multiplicar = new JButton("x");
+		dividir = new JButton("/");
+		restar = new JButton("-");
+		igual = new JButton("=");
+		
+		//panel de numeros
+		panelNumeros = new JPanel();
+		panelNumeros.setLayout(new GridLayout(3, 3));
+		panelNumeros.add(nueve);
+		panelNumeros.add(ocho);
+		panelNumeros.add(siete);
+		panelNumeros.add(seis);
+		panelNumeros.add(cinco);
+		panelNumeros.add(cuatro);
+		panelNumeros.add(tres);
+		panelNumeros.add(dos);
+		panelNumeros.add(uno);
+		
+		//textField
+		salida = new JTextField();
+		
+		//añadir a la ventana
+		add(panelNumeros, BorderLayout.CENTER);
+		add(salida, borderLayour.NORTH);
+		
+		setVisible(true);
+	}
+	
+	
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

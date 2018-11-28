@@ -1,0 +1,36 @@
+package figuras.increibles;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public abstract class Figura {
+	// queremos valores parecidos, pero no crear nuevos objetos
+	
+	private int x, y, tipo;
+	private Color color;
+	
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	public Color getColor() {
+		return color;
+	}
+	public int getTipo() {
+		return tipo;
+	}
+	
+	public Figura(int x, int y, Color color, int tipo) {
+		this.x = x;
+		this.y = y;
+		this.color = color;
+	}
+	
+	public abstract void dibujar(Graphics g);
+	
+	public String toString() {
+		return x + "," + y + "," + tipo + "," + color.getRed() + "," + color.getGreen() + "," + color.getBlue();
+	}
+}

@@ -1,0 +1,7 @@
+
+public class ScoreComparator {
+	
+	public PlayerScore compareScore() {
+		
+	}
+}

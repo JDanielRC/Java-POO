@@ -1,0 +1,158 @@
+//hecho por Daniel Rubio A01633924
+package cositas;
+import java.util.LinkedList;
+import figuras.increibles.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.JPanel;
+
+
+
+public class AreaDibujo extends JPanel implements MouseListener, MouseMotionListener {
+	
+	private ConfiguradorDibujo config;
+	private LinkedList<Figura> listaFiguras;
+	private int x1, x2, y1, y2, figura;
+	
+	public LinkedList<Figura> getFiguras(){
+		return listaFiguras;
+	}
+	
+	
+	public AreaDibujo(ConfiguradorDibujo config) {
+		addMouseListener(this);
+		this.config = config;
+		listaFiguras = new LinkedList<>();
+	}
+	public AreaDibujo() {
+		
+	}
+	
+	public void paint(Graphics g) {
+		super.paint(g);
+		for (int i = 0; i < listaFiguras.size(); i++) {
+			listaFiguras.get(i).dibujar(g);
+		}
+		
+		
+	}
+	public void convertir(File datos) {
+		LinkedList<Figura> listaCargada;
+		listaCargada = new LinkedList<>();
+		BufferedReader in;
+		if (datos != null) {
+			try {
+				in = new BufferedReader(new FileReader(datos));
+				String linea = in.readLine();
+				while(linea != null){
+					String [] datosRecortados = linea.split(",");
+					for(int i=0; i < datosRecortados.length; i++) {
+						int x = Integer.parseInt(datosRecortados[0]);
+						int y = Integer.parseInt(datosRecortados[1]);
+						Color color = new Color(Integer.parseInt(datosRecortados[3]), Integer.parseInt(datosRecortados[4]), Integer.parseInt(datosRecortados[5]));
+						int tipo = Integer.parseInt(datosRecortados[2]);
+						if (tipo == 0) {
+							Circulo circulo = new Circulo(x, y, color, tipo);
+							listaCargada.add(circulo);
+						} else if (tipo == 1) {
+							Rectangulo rectangulo = new Rectangulo(x, y, color, tipo);
+							listaCargada.add(rectangulo);
+						} else if (tipo == 2) {
+							Texto texto = new Texto(x, y, color, tipo);
+							listaCargada.add(texto);
+						}
+					}
+				  linea = in.readLine();
+				}
+				listaFiguras = listaCargada;
+				repaint();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
+	
+
+	@Override
+	public void mouseClicked(MouseEvent e) { 
+		switch(config.getFigura()) {
+		case ConfiguradorDibujo.CIRCULO:
+			listaFiguras.add(new Circulo(e.getX(), e.getY(), config.getColor(), ConfiguradorDibujo.CIRCULO));
+			break;
+			
+		case ConfiguradorDibujo.RECTANGULO:
+			listaFiguras.add(new Rectangulo(e.getX(), e.getY(), config.getColor(), ConfiguradorDibujo.RECTANGULO));
+			break;
+			
+		case ConfiguradorDibujo.TEXTO:
+			listaFiguras.add(new Texto(e.getX(), e.getY(), config.getColor(), ConfiguradorDibujo.TEXTO));
+			break;
+		}
+		repaint();
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) { 
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) { 
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) { 
+		// TODO Auto-generated method stub
+		x1 = e.getX();
+		y1 = e.getY();
+		figura = config.getFigura();
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) { //soltar el click
+		
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		int tempX2 = e.getX();
+		int tempY2 = e.getY();
+		if (tempX2 < x1) {
+			x2 = x1;
+			x1 = tempX2;
+		}
+		if (tempY2 < y1) {
+			y2 = y1;
+			y1 = tempY2;
+		}
+		
+		repaint();
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+}
